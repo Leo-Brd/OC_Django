@@ -2,6 +2,9 @@ from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Band(models.Model):
+
+    def __str__(self):
+        return f'{self.name}'
     
     class Genre(models.TextChoices):
         HIP_HOP = 'HH'
@@ -18,6 +21,10 @@ class Band(models.Model):
     official_homepage = models.fields.URLField(null=True, blank=True)
 
 class Listing(models.Model):
+
+    def __str__(self):
+        return f'{self.title}'
+    
     class Type(models.TextChoices):
         RECORDS = 'RE'
         CLOTHING = 'CL'
