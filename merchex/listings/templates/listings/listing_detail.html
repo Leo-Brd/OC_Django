@@ -1,0 +1,19 @@
+
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+<h2>{{ listing.title }}</h2>
+
+<ul>
+ <li>Description : {{ listing.description }}</li>
+ <li>Date : {{ listing.year }}</li>
+ <li>Vendu : {{ listing.sold|yesno }}</li>
+ <li>Type : {{ listing.type.get_type_display }}</li>
+</ul>
+
+<p>Produit du groupe {{ listing.band.name }}</p>
+
+<a href="{% url 'listings-list' %}">Retour à toutes les annonces</a>
+
+{% endblock %}
