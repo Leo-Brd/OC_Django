@@ -8,6 +8,7 @@
 <ul>
     {% for listing in listings %}
         <li><a href="{% url 'listing-detail' listing.id %}">{{ listing.title }}</a></li>
+        - <a href="{% url 'listing-update' listing.id %}">[modifier]</a>
     {% endfor %}
 </ul>
 

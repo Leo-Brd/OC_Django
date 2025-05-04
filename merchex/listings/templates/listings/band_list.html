@@ -8,6 +8,7 @@
 <ul>
     {% for band in bands %}
         <li><a href="{% url 'band-detail' band.id %}">{{ band.name }}</a></li>
+        - <a href="{% url 'band-update' band.id %}">[modifier]</a>
     {% endfor %}
 </ul>
 
