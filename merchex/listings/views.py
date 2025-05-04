@@ -93,8 +93,8 @@ def band_update(request, id):
         form = BandForm(instance=band)
 
     return render(request,
-                'listings/band_update.html',
-                {'form': form})
+        'listings/band_update.html',
+        {'form': form})
 
 
 def listing_update(request, id):
@@ -109,5 +109,29 @@ def listing_update(request, id):
         form = BandForm(instance=listing)
 
     return render(request,
-                'listings/listing_update.html',
-                {'form': form})
+        'listings/listing_update.html',
+        {'form': form})
+
+
+def band_delete(request, id):
+    band = Band.objects.get(id=id)
+
+    if request.method == 'POST':
+        band.delete()
+        return redirect('band-list')
+
+    return render(request,
+        'listings/band_delete.html',
+        {'band': band})
+
+
+def listing_delete(request, id):
+    listing = listing.objects.get(id=id)
+
+    if request.method == 'POST':
+        listing.delete()
+        return redirect('listings-list')
+
+    return render(request,
+        'listings/listing_delete.html',
+        {'listing': listing})
